@@ -1,5 +1,8 @@
 package com.smile;
 
+import com.smile.conf.CfgLoader;
+import com.smile.filter.FilterLoader;
+
 /**
  * 敏感词管理
  */
@@ -8,8 +11,8 @@ public class SensitiveWordsHandler
     /*
     加载配置
      */
-    public static void init(String cfgPath){
-
+    public static boolean init(String cfgPath){
+        return (CfgLoader.getInstance().init(cfgPath) && FilterLoader.getInstance().init());
     }
 
     /*
