@@ -1,8 +1,7 @@
 package com.smile.filter;
 
-import com.smile.conf.CfgLoader;
-
-import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 
 public class FilterLoader {
     private final static FilterLoader instance = new FilterLoader();
@@ -11,9 +10,19 @@ public class FilterLoader {
     }
     private FilterLoader() {}
 
-    public boolean init(){
+    private List<WordsFilter> chains = new ArrayList<>();
 
-        return  true;
+    public void addFilter(WordsFilter filter){
+        chains.add(filter);
     }
+
+    public String filter(String content){
+        StringBuilder ss = new StringBuilder().append(content);
+        for(int i = 0; i < chains.size(); ++i){
+            ss = chains.get(0).filter(ss);
+        }
+        return ss.toString();
+    }
+
 
 }

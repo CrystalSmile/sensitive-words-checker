@@ -2,6 +2,7 @@ package com.smile;
 
 import static org.junit.Assert.assertTrue;
 
+import com.smile.filter.FilterLoader;
 import org.junit.Test;
 
 /**
@@ -9,12 +10,13 @@ import org.junit.Test;
  */
 public class AppTest 
 {
-    /**
-     * Rigorous Test :-)
-     */
     @Test
-    public void shouldAnswerWithTrue()
-    {
-        assertTrue( true );
+    public void testBase(){
+        SensitiveWordsManager.init("E:\\GitSource\\sensitive-words-checker\\data");
+
+        WordsTest.check("当天下午，中共中央、国务院、中央军委在人民大会堂举行座谈会，纪念中国人民抗日战争暨世界反法西斯战争胜利75周年，习近平总书记发表重要讲话。");
+
     }
+
+
 }
