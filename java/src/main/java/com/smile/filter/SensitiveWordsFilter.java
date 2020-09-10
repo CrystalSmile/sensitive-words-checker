@@ -2,9 +2,6 @@ package com.smile.filter;
 
 import com.smile.conf.IgnoreCharData;
 import com.smile.conf.SensitiveWordsData;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.TreeMap;
 
 public class SensitiveWordsFilter implements WordsFilter {
