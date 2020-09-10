@@ -22,10 +22,12 @@ public class CfgLoader {
         SensitiveWordsData tmpSensitiveWordsData = new SensitiveWordsData();
         if(tmpSensitiveWordsData.init(dataFile.getAbsolutePath() + File.separator + "sensitivewords.txt")){
             FilterLoader.getInstance().addFilter(new SensitiveWordsFilter(tmpSensitiveWordsData));
+
         }else{
             System.out.println("CfgLoader:init init base word fail");
             return false;
         }
+
         return  true;
     }
 
